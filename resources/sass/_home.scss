@@ -1,0 +1,452 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Blinker', sans-serif; 
+}
+
+// All headings are specified below
+
+h2, h3 {
+    margin-bottom: 20px;
+}
+
+.headline, .portfolio-title, .contact-title {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.headline {
+    margin-top: 80px;
+    font-size: 40pt;
+    font-weight: 400;
+}
+
+.portfolio-title, .contact-title {
+    font-size: 25pt;
+    font-weight: 400;
+}
+
+.portfolio-title {
+    margin-top: 100px;
+}
+
+.contact-title {
+    // the element above it, de card, has already a margin of 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#menu {
+    width: calc(100% - 20%); //- 20%padding
+    padding-left: 20%;
+    margin: 30px auto 0px;
+    display: flex;
+    // border: solid 1px black;
+
+    .list-items {
+        display: flex;
+        list-style-type: none;
+
+        li {
+            margin-right: 30px;
+
+            a {
+                text-decoration: none;
+                color: #000000;
+                font-weight: 400;
+            }
+
+            a:hover {
+                color: rgb(70, 132, 136);
+                transition: 0.2s;
+            }
+        }
+    }
+
+    #menu-button {
+        width: 17px;
+        display: none;
+
+        .bar {
+            height: 2px;
+            width: 17px;
+            margin: 3px 0 3px 0;
+            background-color: #000000;
+            transition: 0.3s;
+        }
+    }
+
+    /* translateY === bar-height + margin-bottom*/
+    .change .bar1 {
+        transform: translateY(5px) rotate(-45deg) ;
+    }
+        
+    .change .bar2 {
+        opacity: 0;
+    }
+      
+    .change .bar3 {
+        transform: translateY(-5px) rotate(45deg);
+    }
+}
+
+#profile-section {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 150px;
+    // border: solid 1px green;
+
+    .profile-picture {
+        width: 50%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 0px 30px #888888;
+    }
+
+    .profile-description {
+        width: 40%;
+        font-weight: 300;
+        text-align: justify;
+    }
+}
+
+#school-section {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 150px;
+
+    .school-description {
+        font-weight: 300;
+        text-align: justify;
+
+        p:nth-child(3) {
+            margin-top: 10px;
+        }
+    }
+    .timeline {
+        width: 300px;
+        margin-left: 10%;
+    }
+}
+
+#projects-section {
+    // +30px because of the 15px margin on both sides of a card
+    width: calc(60% + 50px);
+    margin: 0 auto;
+    margin-top: 50px;
+
+    #card-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .card {
+            height: 350px;
+            width: 270px;
+            border-radius: 20px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 20px #888888;
+            margin: 0 25px 50px 25px;
+            overflow: hidden;
+
+            .card-body {
+                height: 230px;
+                background-image: url(/images/project.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+
+                .card-layer {
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(0, 0, 0, 0);
+                    display: inline-block;
+                    transition: 0.2s;
+
+                    a {
+                        text-decoration: none;
+                        color: rgb(77, 77, 77);
+
+                        .read-more-button {
+                            height: 50px;
+                            width: 100px;
+                            margin: 0 auto;
+                            margin-top: 95px;
+                            background-color: rgb(70, 132, 136);
+                            color: rgb(255, 255, 255);
+                            font-weight: 300;
+                            line-height: 50px;
+                            text-align: center;
+                            border-radius: 4px;
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+
+            .card-footer {
+                height: 120px;
+                border-top: 1px solid #c0c0c0;
+
+                .card-title {
+                    font-size: 15pt;
+                    font-weight:300;
+                    margin: 10px 10px 8px 10px;
+                }
+
+                .div-line {
+                    height: 4px;
+                    width: 60px;
+                    background-color: rgb(70, 132, 136);
+                    border-radius: 2px;
+                    margin-left: 10px;
+                }
+
+                .card-description {
+                    font-size: 11pt;
+                    font-weight: 300;
+                    margin: 8px 10px 0 10px;
+                    text-align: justify;
+                }
+            }
+        }
+
+        .card:hover .card-layer {
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: 0.2s;
+        }
+
+        .card:hover .card-layer a .read-more-button {
+            opacity: 1;
+            transition: 0.2s;
+        }
+    }
+}
+
+#contact-section {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+
+        input[type=text], input[type=email] {
+            margin: 20px 0;
+            padding-left: 8px;
+            font-family: 'Blinker';
+            height: 35px;
+            width: 400px;
+            outline: none;
+            border: none;
+            border-left: 2px solid rgb(70, 132, 136);
+            background-color: #ebebeb;
+        }
+
+        input[type=text]:focus, input[type=email]:focus, textarea:focus {
+            background-color: #f5f5f5;
+            transition: 0.2s;
+        }
+
+        textarea {
+            margin: 20px 0;
+            padding: 8px;
+            font-family: 'Blinker';
+            min-width: calc(400px - 8px); //8px padding 
+            max-width: calc(400px - 8px); //8px padding 
+            outline: none;
+            min-height: 35px;
+            border: none;
+            border-left: 2px solid rgb(70, 132, 136);
+            background-color: #ebebeb;
+        }
+
+        .contact-button {
+            font-family: 'Blinker';
+            width: 80px;
+            height: 30px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 3px;
+            background-color: rgb(70, 132, 136);
+            color: #ffffff;
+        }
+    }
+}
+
+#footer {
+    width: 100%;
+    height: 75px;
+    text-align: center;
+    line-height: 75px;
+    color: #CCC;
+    background-color: #272727;
+}
+
+@media all and(max-width: 1330px) {
+    .portfolio-title {
+        margin-top: 50px;
+    }
+
+    .contact-title {
+        margin-top: 25px;
+    }
+
+    #profile-section {
+        margin-top: 100px;
+    }
+
+    #school-section {
+        flex-direction: column;
+        margin-top: 75px;
+
+        .timeline {
+            width: 300px;
+            margin: 35px 0;
+        }
+    }
+}
+
+@media all and(max-width: 1000px) {
+    .headline {
+        margin-top: 50px;
+    }
+
+    #profile-section {
+        flex-direction: column;
+        // border: solid 1px green;
+
+        .profile-picture {
+            width: 100%;
+            margin: 0 auto 30px;
+        }
+
+        .profile-description {
+            width: 100%;
+        }
+    }
+
+    #school-section {
+        margin-top: 50px;
+    }
+
+    #projects-section {
+        margin-top: 25px;
+        
+        #card-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+
+            .card {
+                flex: 0 0 auto;
+                margin: 25px;
+            }
+        }
+    }
+}
+
+@media all and(max-width: 880px) {
+    .headline, #profile-section, #school-section, .portfolio-title, .contact-title, #contact-section {
+        width: 80%;
+    }
+
+    // This is where the list-items are going to be shown by the menu-button
+    #menu {
+        width: 100%;
+        padding: 0;
+        flex-direction: column-reverse;
+        // border: solid 1px black;
+
+        .list-items {
+            height: 0px;
+            overflow: hidden;
+            flex-direction: column;
+            background-color: #e7e7e7;
+            margin-top: 30px;
+            transition: 0.3s ease-out;
+            // animation: menuItemsFadeOut 0.3s ease-out;
+
+            li {
+                margin: 15px 0;
+                margin-left: 10%;
+                
+                a {
+                    border-bottom: solid 1.5px rgb(185, 191, 192);
+                }
+            }
+        }
+
+        .menu-active {
+            height: 196.8px;
+            border-bottom: solid 1.5px rgb(70, 132, 136);
+            animation: menuItemsFadeIn 0.3s ease-out;
+        }
+
+        @keyframes menuItemsFadeIn {
+            0% {
+                height: 0;
+            }
+            100% {
+                height: 196.8px;
+            }
+        }
+
+        #menu-button {
+            margin-right: 10%;
+            display: block;
+            cursor: pointer;
+            align-self: flex-end;
+        }
+    }
+
+    #profile-section {
+        .profile-picture {
+            width: 80%;
+            margin: 0 auto 30px;
+        }
+    }
+
+    #projects-section {
+        width: calc(80% + 50px);
+    }
+}
+
+@media all and(max-width: 710px) {
+    .headline {
+        font-size: 30pt;
+        margin-top: 25px;
+    }
+
+    #profile-section {
+        margin-top: 75px;
+
+        .profile-picture {
+            width: 100%;
+        }
+    }
+
+    #contact-section {
+        .contact-form {
+            input[type=text], input[type=email] {
+                width: 100%;
+            }
+            textarea {
+                min-width: calc(100% - 8px); //8px padding 
+                max-width: calc(100% - 8px); //8px padding 
+            }
+        }
+    }
+}
